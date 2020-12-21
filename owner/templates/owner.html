@@ -1,0 +1,15 @@
+{% extends 'basee.html' %}
+{% block title %}
+    Owner
+{% endblock %}
+{% block body %}
+{% for own in owner %}
+    <h5>id: {{ own.id }}</h5>
+    <h2>name: {{ own.name }}</h2>
+    <p>first_name: {{ own.first_name }}</p>
+    <p>age: {{ own.age }}</p>
+    <p>data: {{ own.date }}</p>
+    <hr>
+{% endfor %}
+
+{% endblock %}

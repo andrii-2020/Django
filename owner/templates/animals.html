@@ -1,0 +1,16 @@
+{% extends 'basee.html' %}
+{% block title %}
+Animals
+{% endblock %}
+{% block body %}
+{% for anim in animals %}
+<h3>name: {{ anim.name }}</h3>
+    <h4>id:{{ anim.id }}</h4>
+    <p>age: {{ anim.age }}</p>
+    <p>description: {{ anim.description }}</p>
+    <p>type: {{ anim.type }}</p>
+    <hr>
+{% endfor %}
+
+
+{% endblock %}
