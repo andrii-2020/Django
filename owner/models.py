@@ -32,7 +32,8 @@ class Animals(models.Model):
     age = models.IntegerField(verbose_name='возраст')
     description = models.CharField(max_length=300, verbose_name='описание')
     type = models.CharField(max_length=20, verbose_name='тып')
-    owner_animals = models.ForeignKey(Owner, on_delete=models.CASCADE)
+    photo = models.ImageField('Фото', upload_to='owner/photos', default='', blank=True)
+    owner_animals = models.ForeignKey(Owner, on_delete=models.CASCADE, related_name='animal')
 
     def __str__(self):
         return self.name

@@ -1,8 +1,10 @@
 from django.urls import path
 
-from .views import owner, animals, home
+from .views import owners, animals, home, owner
+
 urlpatterns = [
-    path('', home),
-    path('own', owner),
-    path('anim', animals)
+    path('animals', home),
+    path('own', owners),
+    path('anim', animals),
+    path('<int:id>', owner, name='owner')
 ]

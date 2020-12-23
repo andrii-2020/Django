@@ -11,7 +11,7 @@ def home(request):
     return render(request, 'homee.html', {'t': t})
 
 
-def owner(request):
+def owners(request):
     qs = Owner.objects.all()
     return render(request, 'owner.html', {'owner': qs})
 
@@ -19,3 +19,11 @@ def owner(request):
 def animals(request):
     qs1 = Animals.objects.all()
     return render(request, 'animals.html', {'animals': qs1})
+
+
+def owner(request, id):
+    try:
+        o = Owner.objects.get(pk=id).animal.all()
+    except Exception:
+        o = None
+    return render(request, 'owne-animal.html', {'animals': o})

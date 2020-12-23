@@ -1,0 +1,20 @@
+{% extends 'basee.html' %}
+
+{% block title %}
+animal
+{% endblock %}
+
+{% block body %}
+    <p>Owne-animal</p>
+   {% for animal in animals %}
+       <h1>{{ animal.name }}</h1>
+       {% if animal.photo %}
+           <img src="{{ animal.photo.url }}" alt="{{ animal.name }}">
+       {% endif %}
+       <h2>age: {{ animal.age }}</h2>
+       <h2>description: {{ animal.description }}</h2>
+       <h2>type: {{ animal.type }}</h2>
+       <hr>
+   {% endfor %}
+
+{% endblock %}

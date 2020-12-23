@@ -1,11 +1,19 @@
 {% extends 'basee.html' %}
-{% block title %}
-    Owner
+{% load static %}
+
+{% block options %}
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
 {% endblock %}
+
+{% block title %}
+    Owners
+{% endblock %}
+
 {% block body %}
+
 {% for own in owner %}
     <h5>id: {{ own.id }}</h5>
-    <h2>name: {{ own.name }}</h2>
+    <h2 ><a class="owner" href="{% url 'owner' own.id  %}">{{ own.name }}</a></h2>
     <p>first_name: {{ own.first_name }}</p>
     <p>age: {{ own.age }}</p>
     <p>data: {{ own.date }}</p>
@@ -13,3 +21,4 @@
 {% endfor %}
 
 {% endblock %}
+

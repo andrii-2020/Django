@@ -1,11 +1,14 @@
 {% extends 'basee.html' %}
 {% block title %}
-Animals
+    Animals
 {% endblock %}
 {% block body %}
 {% for anim in animals %}
-<h3>name: {{ anim.name }}</h3>
-    <h4>id:{{ anim.id }}</h4>
+    <h3>name: {{ anim.name }}</h3>
+    <br>
+    {% if anim.photo %}
+    <img src="{{ anim.photo.url }}" alt="{{ anim.name }}">
+    {% endif %}
     <p>age: {{ anim.age }}</p>
     <p>description: {{ anim.description }}</p>
     <p>type: {{ anim.type }}</p>
