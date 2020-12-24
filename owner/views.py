@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .models import Owner, Animals
 from time import gmtime, strftime
 # Create your views here.
+from .forms import OwnerForm
 
 
 def home(request):
@@ -13,7 +14,12 @@ def home(request):
 
 def owners(request):
     qs = Owner.objects.all()
-    return render(request, 'owner.html', {'owner': qs})
+    form = OwnerForm(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+
+    return render(request, 'owner.html', {'owner': qs, 'form': form})
 
 
 def animals(request):

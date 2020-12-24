@@ -39,3 +39,19 @@ class Animals(models.Model):
         return self.name
 
 
+class OrderM(models.Model):
+    class Meta:
+        db_table = 'order'
+    animal = models.ForeignKey(Animals, on_delete=models.CASCADE)
+    name = models.CharField(max_length=30)
+    phone = models.CharField(max_length=12)
+
+
+
+
+
+
+
+
+
+

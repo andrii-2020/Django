@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block options %}
-    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owner.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -11,14 +11,22 @@
 
 {% block body %}
 
-{% for own in owner %}
-    <h5>id: {{ own.id }}</h5>
-    <h2 ><a class="owner" href="{% url 'owner' own.id  %}">{{ own.name }}</a></h2>
-    <p>first_name: {{ own.first_name }}</p>
-    <p>age: {{ own.age }}</p>
-    <p>data: {{ own.date }}</p>
-    <hr>
-{% endfor %}
+<form style="" method="post">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Отправить">
+    </form>
+
+    <div id="owner">
+    {% for own in owner %}
+        <h5>id: {{ own.id }}</h5>
+        <h2 ><a class="owner" href="{% url 'owner' own.id  %}">{{ own.name }}</a></h2>
+        <p>first_name: {{ own.first_name }}</p>
+        <p>age: {{ own.age }}</p>
+        <p>data: {{ own.date }}</p>
+        <hr>
+    {% endfor %}
 
 {% endblock %}
-
+</div>
