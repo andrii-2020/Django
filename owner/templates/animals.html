@@ -3,6 +3,12 @@
     Animals
 {% endblock %}
 {% block body %}
+    <form method="post">
+        {% csrf_token %}
+         {{ formA.as_p }}
+        <input type="submit" value="Отправить">
+    </form>
+    <hr>
 {% for anim in animals %}
     <h3>name: {{ anim.name }}</h3>
     <br>

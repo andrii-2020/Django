@@ -38,7 +38,7 @@ class Animals(models.Model):
     def __str__(self):
         return self.name
 
-
+'''
 class OrderM(models.Model):
     class Meta:
         db_table = 'order'
@@ -46,7 +46,7 @@ class OrderM(models.Model):
     name = models.CharField(max_length=30)
     phone = models.CharField(max_length=12)
 
-
+'''
 
 
 
